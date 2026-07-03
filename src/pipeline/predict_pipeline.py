@@ -1,9 +1,8 @@
-import os  # <-- FIX 1: Added missing import
 import sys
+import os  # Fixed: Added missing os import
 import pandas as pd
 from src.exception import CustomException
 from src.utils import load_object
-
 
 class PredictPipeline:
     def __init__(self):
@@ -12,8 +11,7 @@ class PredictPipeline:
     def predict(self, features):
         try:
             model_path = os.path.join("artifacts", "model.pkl")
-            # FIX 2: Changed 'preprocessor.pkl' to 'proprocessor.pkl' to match your data_transformation file
-            preprocessor_path = os.path.join('artifacts', 'proprocessor.pkl') 
+            preprocessor_path = os.path.join('artifacts', 'preprocessor.pkl')
             
             print("Before Loading")
             model = load_object(file_path=model_path)
